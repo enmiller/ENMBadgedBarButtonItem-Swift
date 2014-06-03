@@ -1,4 +1,4 @@
-#ENMBadgedBarButtonItem
+#ENMBadgedBarButtonItem - Swift
 
 A navigation bar button item that can be badged...now in Swift!  
 
