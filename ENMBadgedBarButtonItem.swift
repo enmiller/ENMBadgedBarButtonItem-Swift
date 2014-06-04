@@ -10,10 +10,10 @@ import UIKit
 import Foundation
 import QuartzCore
 
-let kENMDefaultPadding: CGFloat = 3.0
-let kENMDefaultMinSize: CGFloat = 8.0
-let kENMDefaultOriginX: CGFloat = 0.0
-let kENMDefaultOriginY: CGFloat = 0.0
+let kENMDefaultPadding: Double = 3.0
+let kENMDefaultMinSize: Double = 8.0
+let kENMDefaultOriginX: Double = 0.0
+let kENMDefaultOriginY: Double = 0.0
 
 class ENMBadgedBarButtonItem: UIBarButtonItem {
     
@@ -36,24 +36,36 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     }
     }
     var badgeBackgroundColor: UIColor = UIColor.greenColor() {
-    didSet {
-        refreshBadgeLabelProperties()
-    }
+        didSet {
+            refreshBadgeLabelProperties()
+        }
     }
     var badgeTextColor: UIColor = UIColor.blackColor() {
-    didSet {
-        refreshBadgeLabelProperties()
-    }
+        didSet {
+            refreshBadgeLabelProperties()
+        }
     }
     var badgeFont: UIFont = UIFont.systemFontOfSize(12.0){
-    didSet {
-        refreshBadgeLabelProperties()
+        didSet {
+            refreshBadgeLabelProperties()
+        }
     }
+    var badgePadding: Double {
+        get {
+            return kENMDefaultPadding
+        }
     }
-    @final let badgePadding: CGFloat = kENMDefaultPadding
-    @final let badgeMinSize: CGFloat = kENMDefaultMinSize
-    var badgeOriginX: CGFloat = kENMDefaultOriginX
-    @final let badgeOriginY: CGFloat = kENMDefaultOriginY
+    var badgeMinSize: Double {
+        get {
+            return kENMDefaultMinSize
+        }
+    }
+    var badgeOriginX: Double = kENMDefaultOriginX
+    var badgeOriginY: Double {
+        get {
+            return kENMDefaultOriginY
+        }
+    }
     var shouldHideBadgeAtZero: Bool = true
     var shouldAnimateBadge: Bool = true
     
@@ -95,7 +107,7 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
         
         badgeLabel.text = self.badgeValue;
         
-        var duration: CGFloat = animated ? 0.2 : 0.0
+        var duration: Double = animated ? 0.2 : 0.0
         
         UIView.animateWithDuration(duration) {
             self.updateBadgeFrame()
@@ -104,11 +116,11 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     
     func updateBadgeFrame() {
         var expectedLabelSize: CGSize = badgeExpectedSize()
-        var minHeight: CGFloat = expectedLabelSize.height
+        var minHeight: Double = expectedLabelSize.height
         
         minHeight = (minHeight < badgeMinSize) ? badgeMinSize : expectedLabelSize.height
-        var minWidth: CGFloat = expectedLabelSize.width
-        var padding: CGFloat = badgePadding
+        var minWidth: Double = expectedLabelSize.width
+        var padding: Double = badgePadding
         
         minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width
         
