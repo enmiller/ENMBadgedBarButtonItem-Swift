@@ -69,9 +69,6 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     var shouldHideBadgeAtZero: Bool = true
     var shouldAnimateBadge: Bool = true
     
-    
-// MARK: - Initializers
-    
     init()  {
         badgeValue = "0"
         super.init()
@@ -82,9 +79,10 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
         badgeOriginX = customView.frame.size.width - badgeLabel.frame.size.width/2
         super.init(customView: customView)
     }
-    
-    
+}
+
 // MARK: - Utilities
+extension ENMBadgedBarButtonItem {
     
     func refreshBadgeLabelProperties() {
         if (badgeLabel != nil) {
@@ -125,9 +123,9 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
         minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width
         
         self.badgeLabel.frame = CGRectMake(self.badgeOriginX,
-                                           self.badgeOriginY,
-                                           minWidth + padding,
-                                           minHeight + padding)
+            self.badgeOriginY,
+            minWidth + padding,
+            minHeight + padding)
         self.badgeLabel.layer.cornerRadius = (minHeight + padding) / 2
         self.badgeLabel.layer.masksToBounds = true
     }
@@ -140,9 +138,10 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
                 self.badgeLabel.removeFromSuperview()
             })
     }
-    
-    
+}
+
 // MARK: - Internal Helpers
+extension ENMBadgedBarButtonItem {
     
     func createBadgeLabel() -> UILabel {
         var frame = CGRectMake(badgeOriginX, badgeOriginY, 15, 15)
