@@ -12,6 +12,7 @@ class MasterViewController: UITableViewController {
 
     var objects = NSMutableArray()
     var leftBarButton: ENMBadgedBarButtonItem = ENMBadgedBarButtonItem()
+    var count = 0
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +28,9 @@ class MasterViewController: UITableViewController {
             action: "rightButtonPressed:")
         navigationItem.rightBarButtonItem = addButton
     }
+}
+
+extension MasterViewController {
     
     func setUpLeftBarButton() {
         var image = UIImage(named: "barbuttonimage")
@@ -41,8 +45,10 @@ class MasterViewController: UITableViewController {
         leftBarButton = newBarButton
         navigationItem.leftBarButtonItem = leftBarButton
     }
+}
 
-    var count = 0
+extension MasterViewController {
+    
     func leftButtonPressed(_sender: UIButton) {
         count++
         leftBarButton.badgeValue = "\(count)"
@@ -53,4 +59,3 @@ class MasterViewController: UITableViewController {
         leftBarButton.badgeValue = "0"
     }
 }
-
