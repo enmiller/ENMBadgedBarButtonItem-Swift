@@ -183,3 +183,12 @@ extension ENMBadgedBarButtonItem {
         badgeOriginX = self.customView.frame.size.width - badgeLabel.frame.size.width/2
     }
 }
+
+extension ENMBadgedBarButtonItem: Printable {
+    
+    override var description: String {
+        get {
+            return "Bar button badge has a value of \(badgeValue)"
+        }
+    }
+}
