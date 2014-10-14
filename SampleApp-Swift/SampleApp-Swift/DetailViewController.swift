@@ -3,14 +3,18 @@
 //  TestBadge-Swift
 //
 //  Created by Eric Miller on 6/2/14.
-//  Copyright (c) 2014 Yogurt Salad. All rights reserved.
+//  Copyright (c) 2014 Xero. All rights reserved.
 //
 
 import UIKit
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet var detailDescriptionLabel: UILabel
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    @IBOutlet var detailDescriptionLabel: UILabel?
 
 
     var detailItem: AnyObject? {

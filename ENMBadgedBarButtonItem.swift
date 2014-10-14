@@ -3,17 +3,17 @@
 //  TestBadge-Swift
 //
 //  Created by Eric Miller on 6/2/14.
-//  Copyright (c) 2014 Yogurt Salad. All rights reserved.
+//  Copyright (c) 2014 Xero. All rights reserved.
 //
 
 import UIKit
 import Foundation
 import QuartzCore
 
-let kENMDefaultPadding: Double = 3.0
-let kENMDefaultMinSize: Double = 8.0
-let kENMDefaultOriginX: Double = 0.0
-let kENMDefaultOriginY: Double = 0.0
+let kENMDefaultPadding: CGFloat = 3.0
+let kENMDefaultMinSize: CGFloat = 8.0
+let kENMDefaultOriginX: CGFloat = 0.0
+let kENMDefaultOriginY: CGFloat = 0.0
 
 class ENMBadgedBarButtonItem: UIBarButtonItem {
     
@@ -30,7 +30,7 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
         } else {
             badgeLabel = self.createBadgeLabel()
             updateBadgeProperties()
-            customView.addSubview(badgeLabel)
+            customView!.addSubview(badgeLabel)
             updateBadgeValueAnimated(false)
         }
     }
@@ -50,18 +50,18 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
             refreshBadgeLabelProperties()
         }
     }
-    var badgePadding: Double {
+    var badgePadding: CGFloat {
         get {
             return kENMDefaultPadding
         }
     }
-    var badgeMinSize: Double {
+    var badgeMinSize: CGFloat {
         get {
             return kENMDefaultMinSize
         }
     }
-    var badgeOriginX: Double = kENMDefaultOriginX
-    var badgeOriginY: Double {
+    var badgeOriginX: CGFloat = kENMDefaultOriginX
+    var badgeOriginY: CGFloat {
         get {
             return kENMDefaultOriginY
         }
@@ -69,15 +69,19 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     var shouldHideBadgeAtZero: Bool = true
     var shouldAnimateBadge: Bool = true
     
-    init()  {
+    override init()  {
         badgeValue = "0"
         super.init()
     }
     
     init(customView: UIView!, value: String!) {
         badgeValue = value
-        badgeOriginX = customView.frame.size.width - badgeLabel.frame.size.width/2
+        badgeOriginX = customView.frame.size.width - badgeLabel.frame.size.width / 2
         super.init(customView: customView)
+    }
+
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
 
@@ -85,11 +89,9 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
 extension ENMBadgedBarButtonItem {
     
     func refreshBadgeLabelProperties() {
-        if (badgeLabel != nil) {
-            badgeLabel.textColor = badgeTextColor;
-            badgeLabel.backgroundColor = badgeBackgroundColor;
-            badgeLabel.font = badgeFont;
-        }
+        badgeLabel.textColor = badgeTextColor;
+        badgeLabel.backgroundColor = badgeBackgroundColor;
+        badgeLabel.font = badgeFont;
     }
     
     func updateBadgeValueAnimated(animated: Bool) {
@@ -114,11 +116,11 @@ extension ENMBadgedBarButtonItem {
     
     func updateBadgeFrame() {
         var expectedLabelSize: CGSize = badgeExpectedSize()
-        var minHeight: Double = expectedLabelSize.height
+        var minHeight = expectedLabelSize.height
         
         minHeight = (minHeight < badgeMinSize) ? badgeMinSize : expectedLabelSize.height
-        var minWidth: Double = expectedLabelSize.width
-        var padding: Double = badgePadding
+        var minWidth = expectedLabelSize.width
+        var padding = badgePadding
         
         minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width
         
@@ -180,7 +182,7 @@ extension ENMBadgedBarButtonItem {
     }
     
     func updateBadgeProperties() {
-        badgeOriginX = self.customView.frame.size.width - badgeLabel.frame.size.width/2
+        badgeOriginX = self.customView!.frame.size.width - badgeLabel.frame.size.width/2
     }
 }
 
