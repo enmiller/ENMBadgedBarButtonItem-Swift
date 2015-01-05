@@ -33,9 +33,14 @@ class MasterViewController: UITableViewController {
 extension MasterViewController {
     
     func setUpLeftBarButton() {
-        var image = UIImage(named: "barbuttonimage")
-        var button = UIButton.buttonWithType(.Custom) as UIButton
-        button.frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height)
+        let image = UIImage(named: "barbuttonimage")
+        let button = UIButton.buttonWithType(.Custom) as UIButton
+        if let knownImage = image {
+            button.frame = CGRectMake(0.0, 0.0, knownImage.size.width, knownImage.size.height)
+        } else {
+            button.frame = CGRectZero;
+        }
+        
         button.setBackgroundImage(image, forState: UIControlState.Normal)
         button.addTarget(self,
             action: "leftButtonPressed:",
