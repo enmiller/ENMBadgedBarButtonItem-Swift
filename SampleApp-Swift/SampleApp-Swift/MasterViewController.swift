@@ -34,7 +34,7 @@ extension MasterViewController {
     
     func setUpLeftBarButton() {
         let image = UIImage(named: "barbuttonimage")
-        let button = UIButton.buttonWithType(.Custom) as UIButton
+        let button = UIButton.buttonWithType(.Custom) as! UIButton
         if let knownImage = image {
             button.frame = CGRectMake(0.0, 0.0, knownImage.size.width, knownImage.size.height)
         } else {
