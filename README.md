@@ -12,5 +12,5 @@ Currently no known issues!!
 ---
 
 ###Notes:
-* Compiled for Swift 1.2
+* For Swift 2, there is a new branch called 'swift2' found [here](https://github.com/enmiller/ENMBadgedBarButtonItem-Swift/tree/swift2)
 * To get a non-Swift version, visit the repository for it [here](https://github.com/enmiller/ENMBadgedBarButtonItem)
