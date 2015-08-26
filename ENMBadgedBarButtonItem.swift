@@ -20,9 +20,9 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     var badgeLabel: UILabel = UILabel()
     var badgeValue: String {
         didSet {
-            if (shouldBadgeHide(badgeValue)) {
+            guard !shouldBadgeHide(badgeValue) else {
                 removeBadge()
-                return;
+                return
             }
             
             if (badgeLabel.superview != nil) {
@@ -91,6 +91,7 @@ extension ENMBadgedBarButtonItem {
     }
     
     func updateBadgeValueAnimated(animated: Bool) {
+        
         if (animated && shouldAnimateBadge && (badgeLabel.text != badgeValue)) {
             let animation: CABasicAnimation = CABasicAnimation()
             animation.keyPath = "transform.scale"
@@ -104,7 +105,6 @@ extension ENMBadgedBarButtonItem {
         badgeLabel.text = self.badgeValue;
         
         let duration: Double = animated ? 0.2 : 0.0
-        
         UIView.animateWithDuration(duration) {
             self.updateBadgeFrame()
         }
@@ -120,12 +120,13 @@ extension ENMBadgedBarButtonItem {
         
         minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width
         
-        self.badgeLabel.frame = CGRectMake(self.badgeOriginX,
+        self.badgeLabel.frame = CGRectMake(
+            self.badgeOriginX,
             self.badgeOriginY,
             minWidth + padding,
-            minHeight + padding)
+            minHeight + padding
+        )
         self.badgeLabel.layer.cornerRadius = (minHeight + padding) / 2
-        self.badgeLabel.layer.masksToBounds = true
     }
     
     func removeBadge() {
@@ -148,6 +149,8 @@ extension ENMBadgedBarButtonItem {
         label.font = badgeFont
         label.backgroundColor = badgeBackgroundColor
         label.textAlignment = NSTextAlignment.Center
+        label.layer.cornerRadius = frame.size.width / 2
+        label.clipsToBounds = true
         
         return label
     }

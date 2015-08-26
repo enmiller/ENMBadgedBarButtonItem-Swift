@@ -12,7 +12,7 @@ class MasterViewController: UITableViewController {
 
     var objects = NSMutableArray()
     var leftBarButton: ENMBadgedBarButtonItem?
-    var count = 0
+    var count = 96
 
     override func awakeFromNib() {
         super.awakeFromNib()
