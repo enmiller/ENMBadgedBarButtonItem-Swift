@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var objects = NSMutableArray()
-    var leftBarButton: ENMBadgedBarButtonItem = ENMBadgedBarButtonItem()
+    var leftBarButton: ENMBadgedBarButtonItem?
     var count = 0
 
     override func awakeFromNib() {
@@ -34,7 +34,7 @@ extension MasterViewController {
     
     func setUpLeftBarButton() {
         let image = UIImage(named: "barbuttonimage")
-        let button = UIButton.buttonWithType(.Custom) as! UIButton
+        let button = UIButton(type: .Custom)
         if let knownImage = image {
             button.frame = CGRectMake(0.0, 0.0, knownImage.size.width, knownImage.size.height)
         } else {
@@ -46,7 +46,7 @@ extension MasterViewController {
             action: "leftButtonPressed:",
             forControlEvents: UIControlEvents.TouchUpInside)
         
-        var newBarButton = ENMBadgedBarButtonItem(customView: button, value: "0")
+        let newBarButton = ENMBadgedBarButtonItem(customView: button, value: "\(count)")
         leftBarButton = newBarButton
         navigationItem.leftBarButtonItem = leftBarButton
     }
@@ -56,11 +56,11 @@ extension MasterViewController {
     
     func leftButtonPressed(_sender: UIButton) {
         count++
-        leftBarButton.badgeValue = "\(count)"
+        leftBarButton?.badgeValue = "\(count)"
     }
     
     func rightButtonPressed(_sender: UIButton) {
         count = 0
-        leftBarButton.badgeValue = "0"
+        leftBarButton?.badgeValue = "0"
     }
 }
