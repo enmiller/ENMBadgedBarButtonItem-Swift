@@ -31,7 +31,12 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
                 badgeLabel = self.createBadgeLabel()
                 updateBadgeProperties()
                 customView!.addSubview(badgeLabel)
-                updateBadgeValueAnimated(false)
+                
+                // Pull the setting of the value and layer border radius off onto the next event loop.
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    self.badgeLabel.text = self.badgeValue
+                    self.updateBadgeFrame()
+                })
             }
         }
     }
