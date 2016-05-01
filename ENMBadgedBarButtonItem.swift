@@ -171,6 +171,7 @@ extension ENMBadgedBarButtonItem {
     func duplicateLabel(labelToCopy: UILabel) -> UILabel {
         let dupLabel = UILabel(frame: labelToCopy.frame)
         dupLabel.text = labelToCopy.text
+        dupLabel.font = labelToCopy.font
         
         return dupLabel
     }
