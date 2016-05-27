@@ -25,7 +25,7 @@ class MasterViewController: UITableViewController {
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .Rewind,
             target: self,
-            action: "rightButtonPressed:")
+            action: #selector(MasterViewController.rightButtonPressed(_:)))
         navigationItem.rightBarButtonItem = addButton
     }
 }
@@ -43,7 +43,7 @@ extension MasterViewController {
         
         button.setBackgroundImage(image, forState: UIControlState.Normal)
         button.addTarget(self,
-            action: "leftButtonPressed:",
+            action: #selector(MasterViewController.leftButtonPressed(_:)),
             forControlEvents: UIControlEvents.TouchUpInside)
         
         let newBarButton = ENMBadgedBarButtonItem(customView: button, value: "\(count)")
@@ -55,7 +55,7 @@ extension MasterViewController {
 extension MasterViewController {
     
     func leftButtonPressed(_sender: UIButton) {
-        count++
+        count = count + 1
         leftBarButton?.badgeValue = "\(count)"
     }
     
