@@ -9,23 +9,23 @@
 import UIKit
 
 class MasterViewController: UITableViewController {
-
+    
     var objects = NSMutableArray()
     var leftBarButton: ENMBadgedBarButtonItem?
     var count = 0
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         title = "My Table"
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBarButton()
-
+        
         let addButton = UIBarButtonItem(barButtonSystemItem: .rewind,
-            target: self,
-            action: #selector(MasterViewController.rightButtonPressed(_:)))
+                                        target: self,
+                                        action: #selector(MasterViewController.rightButtonPressed(_:)))
         navigationItem.rightBarButtonItem = addButton
     }
     
