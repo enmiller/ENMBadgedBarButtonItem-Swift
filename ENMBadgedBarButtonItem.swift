@@ -21,7 +21,9 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     var badgeValue: String {
         didSet {
             guard !shouldBadgeHide(badgeValue) else {
-                removeBadge()
+                if (badgeLabel.superview != nil) {
+                    removeBadge()
+                }
                 return
             }
             
