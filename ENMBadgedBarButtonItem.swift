@@ -20,7 +20,7 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     var badgeLabel: UILabel = UILabel()
     var badgeValue: String {
         didSet {
-            guard !shouldBadgeHide(badgeValue) else {
+            guard !shouldBadgeHide(badgeValue as NSString) else {
                 if (badgeLabel.superview != nil) {
                     removeBadge()
                 }
@@ -42,12 +42,12 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
             }
         }
     }
-    var badgeBackgroundColor: UIColor = UIColor.green() {
+    var badgeBackgroundColor: UIColor = UIColor.green {
         didSet {
             refreshBadgeLabelProperties()
         }
     }
-    var badgeTextColor: UIColor = UIColor.black() {
+    var badgeTextColor: UIColor = UIColor.black {
         didSet {
             refreshBadgeLabelProperties()
         }
