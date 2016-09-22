@@ -7,17 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B150A211D93854700C5E6FE /* ENMBadgedBarButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B150A1F1D93854700C5E6FE /* ENMBadgedBarButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B150A241D93854700C5E6FE /* ENMBadgedBarButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B150A1D1D93854700C5E6FE /* ENMBadgedBarButton.framework */; };
+		7B150A251D93854700C5E6FE /* ENMBadgedBarButton.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B150A1D1D93854700C5E6FE /* ENMBadgedBarButton.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7B150A2B1D93857200C5E6FE /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B150A2A1D93857200C5E6FE /* ENMBadgedBarButtonItem.swift */; };
 		7B8B2AB9193E252B00A5ABD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2AB8193E252B00A5ABD3 /* AppDelegate.swift */; };
 		7B8B2ABB193E252B00A5ABD3 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2ABA193E252B00A5ABD3 /* MasterViewController.swift */; };
 		7B8B2ABD193E252B00A5ABD3 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2ABC193E252B00A5ABD3 /* DetailViewController.swift */; };
 		7B8B2AC0193E252B00A5ABD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B2ABE193E252B00A5ABD3 /* Main.storyboard */; };
 		7B8B2AC2193E252B00A5ABD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B2AC1193E252B00A5ABD3 /* Images.xcassets */; };
 		7B8B2ACE193E252B00A5ABD3 /* SampleApp_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2ACD193E252B00A5ABD3 /* SampleApp_SwiftTests.swift */; };
-		7B8B2AD8193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2AD7193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift */; };
-		7B8B2AD9193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2AD7193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7B150A221D93854700C5E6FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7B8B2AAB193E252B00A5ABD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7B150A1C1D93854700C5E6FE;
+			remoteInfo = ENMBadgedBarButton;
+		};
 		7B8B2AC8193E252B00A5ABD3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7B8B2AAB193E252B00A5ABD3 /* Project object */;
@@ -27,7 +36,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7B150A291D93854700C5E6FE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7B150A251D93854700C5E6FE /* ENMBadgedBarButton.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		7B150A1D1D93854700C5E6FE /* ENMBadgedBarButton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ENMBadgedBarButton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B150A1F1D93854700C5E6FE /* ENMBadgedBarButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ENMBadgedBarButton.h; sourceTree = "<group>"; };
+		7B150A201D93854700C5E6FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B150A2A1D93857200C5E6FE /* ENMBadgedBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ENMBadgedBarButtonItem.swift; sourceTree = "<group>"; };
 		7B8B2AB3193E252B00A5ABD3 /* SampleApp-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8B2AB7193E252B00A5ABD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8B2AB8193E252B00A5ABD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -38,14 +65,21 @@
 		7B8B2AC7193E252B00A5ABD3 /* SampleApp-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SampleApp-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8B2ACC193E252B00A5ABD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8B2ACD193E252B00A5ABD3 /* SampleApp_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SampleApp_SwiftTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		7B8B2AD7193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = ENMBadgedBarButtonItem.swift; path = ../../ENMBadgedBarButtonItem.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7B150A191D93854700C5E6FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B8B2AB0193E252B00A5ABD3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B150A241D93854700C5E6FE /* ENMBadgedBarButton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,12 +93,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B150A1E1D93854700C5E6FE /* ENMBadgedBarButton */ = {
+			isa = PBXGroup;
+			children = (
+				7B150A2A1D93857200C5E6FE /* ENMBadgedBarButtonItem.swift */,
+				7B150A1F1D93854700C5E6FE /* ENMBadgedBarButton.h */,
+				7B150A201D93854700C5E6FE /* Info.plist */,
+			);
+			path = ENMBadgedBarButton;
+			sourceTree = "<group>";
+		};
 		7B8B2AAA193E252B00A5ABD3 = {
 			isa = PBXGroup;
 			children = (
 				7B8B2AB5193E252B00A5ABD3 /* SampleApp-Swift */,
 				7B8B2AB6193E252B00A5ABD3 /* Supporting Files */,
 				7B8B2ACA193E252B00A5ABD3 /* SampleApp-SwiftTests */,
+				7B150A1E1D93854700C5E6FE /* ENMBadgedBarButton */,
 				7B8B2AB4193E252B00A5ABD3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +119,7 @@
 			children = (
 				7B8B2AB3193E252B00A5ABD3 /* SampleApp-Swift.app */,
 				7B8B2AC7193E252B00A5ABD3 /* SampleApp-SwiftTests.xctest */,
+				7B150A1D1D93854700C5E6FE /* ENMBadgedBarButton.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,7 +127,6 @@
 		7B8B2AB5193E252B00A5ABD3 /* SampleApp-Swift */ = {
 			isa = PBXGroup;
 			children = (
-				7B8B2AD7193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift */,
 				7B8B2AB8193E252B00A5ABD3 /* AppDelegate.swift */,
 				7B8B2ABA193E252B00A5ABD3 /* MasterViewController.swift */,
 				7B8B2ABC193E252B00A5ABD3 /* DetailViewController.swift */,
@@ -119,7 +164,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		7B150A1A1D93854700C5E6FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B150A211D93854700C5E6FE /* ENMBadgedBarButton.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		7B150A1C1D93854700C5E6FE /* ENMBadgedBarButton */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B150A281D93854700C5E6FE /* Build configuration list for PBXNativeTarget "ENMBadgedBarButton" */;
+			buildPhases = (
+				7B150A181D93854700C5E6FE /* Sources */,
+				7B150A191D93854700C5E6FE /* Frameworks */,
+				7B150A1A1D93854700C5E6FE /* Headers */,
+				7B150A1B1D93854700C5E6FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ENMBadgedBarButton;
+			productName = ENMBadgedBarButton;
+			productReference = 7B150A1D1D93854700C5E6FE /* ENMBadgedBarButton.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		7B8B2AB2193E252B00A5ABD3 /* SampleApp-Swift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B8B2AD1193E252B00A5ABD3 /* Build configuration list for PBXNativeTarget "SampleApp-Swift" */;
@@ -127,10 +201,12 @@
 				7B8B2AAF193E252B00A5ABD3 /* Sources */,
 				7B8B2AB0193E252B00A5ABD3 /* Frameworks */,
 				7B8B2AB1193E252B00A5ABD3 /* Resources */,
+				7B150A291D93854700C5E6FE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7B150A231D93854700C5E6FE /* PBXTargetDependency */,
 			);
 			name = "SampleApp-Swift";
 			productName = "SampleApp-Swift";
@@ -165,9 +241,16 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Yogurt Salad";
 				TargetAttributes = {
+					7B150A1C1D93854700C5E6FE = {
+						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
 					7B8B2AB2193E252B00A5ABD3 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeamName = "Eric Miller (Personal Team)";
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Manual;
 					};
 					7B8B2AC6193E252B00A5ABD3 = {
 						CreatedOnToolsVersion = 6.0;
@@ -191,11 +274,19 @@
 			targets = (
 				7B8B2AB2193E252B00A5ABD3 /* SampleApp-Swift */,
 				7B8B2AC6193E252B00A5ABD3 /* SampleApp-SwiftTests */,
+				7B150A1C1D93854700C5E6FE /* ENMBadgedBarButton */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7B150A1B1D93854700C5E6FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B8B2AB1193E252B00A5ABD3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,13 +306,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7B150A181D93854700C5E6FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B150A2B1D93857200C5E6FE /* ENMBadgedBarButtonItem.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7B8B2AAF193E252B00A5ABD3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7B8B2ABD193E252B00A5ABD3 /* DetailViewController.swift in Sources */,
 				7B8B2ABB193E252B00A5ABD3 /* MasterViewController.swift in Sources */,
-				7B8B2AD8193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift in Sources */,
 				7B8B2AB9193E252B00A5ABD3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,7 +328,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B8B2AD9193E262E00A5ABD3 /* ENMBadgedBarButtonItem.swift in Sources */,
 				7B8B2ACE193E252B00A5ABD3 /* SampleApp_SwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +335,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7B150A231D93854700C5E6FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7B150A1C1D93854700C5E6FE /* ENMBadgedBarButton */;
+			targetProxy = 7B150A221D93854700C5E6FE /* PBXContainerItemProxy */;
+		};
 		7B8B2AC9193E252B00A5ABD3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7B8B2AB2193E252B00A5ABD3 /* SampleApp-Swift */;
@@ -257,6 +359,72 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7B150A261D93854700C5E6FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ENMBadgedBarButton/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinyZepplin.ENMBadgedBarButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7B150A271D93854700C5E6FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = ENMBadgedBarButton/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinyZepplin.ENMBadgedBarButton;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		7B8B2ACF193E252B00A5ABD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -345,26 +513,35 @@
 		7B8B2AD2193E252B00A5ABD3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SampleApp-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yogurtsalad.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyzepplin.BarButton-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		7B8B2AD3193E252B00A5ABD3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SampleApp-Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yogurtsalad.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tinyzepplin.BarButton-Swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -385,7 +562,7 @@
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yogurtsalad.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -403,7 +580,8 @@
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yogurtsalad.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
@@ -411,6 +589,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7B150A281D93854700C5E6FE /* Build configuration list for PBXNativeTarget "ENMBadgedBarButton" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B150A261D93854700C5E6FE /* Debug */,
+				7B150A271D93854700C5E6FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7B8B2AAE193E252B00A5ABD3 /* Build configuration list for PBXProject "SampleApp-Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
