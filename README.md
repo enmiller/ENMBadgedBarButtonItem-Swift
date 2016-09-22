@@ -6,6 +6,5 @@ A navigation bar button item that can be badged
 
 ---
 
-###Notes:
-* Now compiled for Swift 3
-* To get a non-Swift version, visit the repository for it [here](https://github.com/enmiller/ENMBadgedBarButtonItem)
+###Compatibility:
+* ENMBadgedBarButtonItem is built for Xcode 8 and Swift 3
