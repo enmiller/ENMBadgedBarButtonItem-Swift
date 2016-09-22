@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ENMBadgedBarButton
 
 class MasterViewController: UITableViewController {
     

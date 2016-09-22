@@ -15,10 +15,10 @@ let kENMDefaultMinSize: CGFloat = 8.0
 let kENMDefaultOriginX: CGFloat = 0.0
 let kENMDefaultOriginY: CGFloat = 0.0
 
-class ENMBadgedBarButtonItem: UIBarButtonItem {
+public class ENMBadgedBarButtonItem: UIBarButtonItem {
     
     var badgeLabel: UILabel = UILabel()
-    var badgeValue: String {
+    public var badgeValue: String {
         didSet {
             guard !shouldBadgeHide(badgeValue as NSString) else {
                 if (badgeLabel.superview != nil) {
@@ -76,14 +76,14 @@ class ENMBadgedBarButtonItem: UIBarButtonItem {
     var shouldHideBadgeAtZero: Bool = true
     var shouldAnimateBadge: Bool = true
     
-    init(customView: UIView, value: String) {
+    public init(customView: UIView, value: String) {
         badgeValue = value
         badgeOriginX = customView.frame.size.width - badgeLabel.frame.size.width / 2
         super.init()
         self.customView = customView
     }
     
-    required init(coder aDecoder: NSCoder) {
+    public required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented.  This UIBarButtonItem requires a custom view in order to use.  Please use the designated initializer -init(customView:value:)")
     }
 }
