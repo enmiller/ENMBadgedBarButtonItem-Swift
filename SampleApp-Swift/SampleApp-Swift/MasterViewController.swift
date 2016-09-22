@@ -7,59 +7,54 @@
 //
 
 import UIKit
+import ENMBadgedBarButton
 
 class MasterViewController: UITableViewController {
-
+    
     var objects = NSMutableArray()
     var leftBarButton: ENMBadgedBarButtonItem?
     var count = 0
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         title = "My Table"
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBarButton()
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Rewind,
-            target: self,
-            action: #selector(MasterViewController.rightButtonPressed(_:)))
+        
+        let addButton = UIBarButtonItem(barButtonSystemItem: .rewind,
+                                        target: self,
+                                        action: #selector(MasterViewController.rightButtonPressed(_:)))
         navigationItem.rightBarButtonItem = addButton
     }
-}
-
-extension MasterViewController {
     
     func setUpLeftBarButton() {
         let image = UIImage(named: "barbuttonimage")
-        let button = UIButton(type: .Custom)
+        let button = UIButton(type: .custom)
         if let knownImage = image {
-            button.frame = CGRectMake(0.0, 0.0, knownImage.size.width, knownImage.size.height)
+            button.frame = CGRect(x: 0.0, y: 0.0, width: knownImage.size.width, height: knownImage.size.height)
         } else {
-            button.frame = CGRectZero;
+            button.frame = CGRect.zero;
         }
         
-        button.setBackgroundImage(image, forState: UIControlState.Normal)
+        button.setBackgroundImage(image, for: UIControlState())
         button.addTarget(self,
-            action: #selector(MasterViewController.leftButtonPressed(_:)),
-            forControlEvents: UIControlEvents.TouchUpInside)
+                         action: #selector(MasterViewController.leftButtonPressed(_:)),
+                         for: UIControlEvents.touchUpInside)
         
         let newBarButton = ENMBadgedBarButtonItem(customView: button, value: "\(count)")
         leftBarButton = newBarButton
         navigationItem.leftBarButtonItem = leftBarButton
     }
-}
-
-extension MasterViewController {
     
-    func leftButtonPressed(_sender: UIButton) {
+    func leftButtonPressed(_ sender: UIButton) {
         count = count + 1
         leftBarButton?.badgeValue = "\(count)"
     }
     
-    func rightButtonPressed(_sender: UIButton) {
+    func rightButtonPressed(_ sender: UIButton) {
         count = 0
         leftBarButton?.badgeValue = "0"
     }
