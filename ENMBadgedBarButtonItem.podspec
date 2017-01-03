@@ -68,7 +68,7 @@ A navigation bar button item that can be badged...now in Swift!
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git", :tag => "#{s.version}"}
+  s.source       = { :git => "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git", :branch => "cocoapods"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
