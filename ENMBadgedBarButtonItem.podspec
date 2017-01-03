@@ -16,8 +16,8 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ENMBadgedBarButtonItem"
-  s.version      = "2.1.1"
-  s.summary      = "A navigation bar button item that can be badged...now in Swift!"
+  s.version      = "2.1.2"
+  s.summary      = "A badging bar button item."
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-A navigation bar button item that can be badged...now in Swift!
+A navigation bar button item that can be badged...now in Swift 3!
                        DESC
 
   s.homepage     = "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git"
