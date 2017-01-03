@@ -24,7 +24,9 @@ Pod::Spec.new do |s|
   #   * Try to keep it short, snappy and to the point.
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
-  s.description  = "A navigation bar button item that can be badged and removed....now in Swift!"
+  s.description  = <<-DESC
+A navigation bar button item that can be badged...now in Swift!
+                       DESC
 
   s.homepage     = "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git"
 
@@ -66,7 +68,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git", :commit => "221212c9762f333cf3f0d5e729890f494c004af7" }
+  s.source       = { :git => "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git", :tag => "#{s.version}"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
