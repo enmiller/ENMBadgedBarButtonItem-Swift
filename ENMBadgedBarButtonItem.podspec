@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ENMBadgedBarButtonItem"
-  s.version      = "2.1.0"
+  s.version      = "2.1.1"
   s.summary      = "A navigation bar button item that can be badged...now in Swift!"
 
   # This description is used to generate tags and improve search results.
@@ -68,7 +68,7 @@ A navigation bar button item that can be badged...now in Swift!
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git", :branch => "cocoapods"}
+  s.source       = { :git => "https://github.com/enmiller/ENMBadgedBarButtonItem-Swift.git", :tag => "#{s.version}"}
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
