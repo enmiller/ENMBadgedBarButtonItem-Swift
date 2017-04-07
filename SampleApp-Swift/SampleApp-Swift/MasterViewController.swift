@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import class BadgedBarButtonItem.BadgedBarButtonItem
+import BadgedBarButtonItem
 
 class MasterViewController: UITableViewController {
     
@@ -33,7 +33,7 @@ class MasterViewController: UITableViewController {
         let image = UIImage(imageLiteralResourceName: "barbuttonimage")
         let buttonFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
         let barButton = BadgedBarButtonItem(
-            startingBadgeValue: "\(leftCount)",
+            startingBadgeValue: leftCount,
             frame: buttonFrame,
             image: image
         )
@@ -45,18 +45,18 @@ class MasterViewController: UITableViewController {
     
     @IBAction func leftBarButtonTapped(_ sender: BadgedBarButtonItem) {
         leftCount = leftCount + 1
-        sender.badgeValue = "\(leftCount)"
+        sender.badgeValue = leftCount
     }
     
     @IBAction func rightBarButtonTapped(_ sender: BadgedBarButtonItem) {
         rightCount = rightCount + 1
-        sender.badgeValue = "\(rightCount)"
+        sender.badgeValue = rightCount
     }
     
     @IBAction func reset(_ sender: UIBarButtonItem) {
         rightCount = 0
         leftCount = 0
-        leftBarButton?.badgeValue = "\(leftCount)"
-        rightBarButton.badgeValue = "\(rightCount)"
+        leftBarButton?.badgeValue = leftCount
+        rightBarButton.badgeValue = rightCount
     }
 }

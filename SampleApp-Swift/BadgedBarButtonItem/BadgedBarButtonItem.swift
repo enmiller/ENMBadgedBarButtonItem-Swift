@@ -10,13 +10,15 @@ import UIKit
 import Foundation
 import QuartzCore
 
+@available(*, deprecated: 3.1, message: "ENMBadgedBarButtonItem will soon become unavailable. Please use the updated BadgedBarButtonItem class name")
 public typealias ENMBadgedBarButtonItem = BadgedBarButtonItem
+
 public class BadgedBarButtonItem: UIBarButtonItem {
     
     var badgeLabel: UILabel = UILabel()
-    @IBInspectable public var badgeValue: String  = "0" {
+    @IBInspectable public var badgeValue: Int  = 0 {
         didSet {
-            guard !shouldBadgeHide(badgeValue as NSString) else {
+            guard !shouldBadgeHide(badgeValue) else {
                 if (badgeLabel.superview != nil) {
                     removeBadge()
                 }
@@ -32,10 +34,24 @@ public class BadgedBarButtonItem: UIBarButtonItem {
                 
                 // Pull the setting of the value and layer border radius off onto the next event loop.
                 DispatchQueue.main.async() { () -> Void in
-                    self.badgeLabel.text = self.badgeValue
+                    self.badgeLabel.text = self.badgeValueString
                     self.updateBadgeFrame()
                 }
             }
+        }
+    }
+    
+    fileprivate var _badgeValueString: String?
+    fileprivate var badgeValueString: String {
+        get {
+            if let customString = _badgeValueString {
+                return customString
+            }
+            
+            return "\(badgeValue)"
+        }
+        set {
+            _badgeValueString = newValue
         }
     }
     
@@ -57,7 +73,7 @@ public class BadgedBarButtonItem: UIBarButtonItem {
     */
     public var badgeProperties: BadgeProperties
     
-    public init(customView: UIView, value: String, badgeProperties: BadgeProperties = BadgeProperties.default) {
+    public init(customView: UIView, value: Int, badgeProperties: BadgeProperties = BadgeProperties.default) {
         self.badgeProperties = badgeProperties
         super.init()
         
@@ -67,7 +83,7 @@ public class BadgedBarButtonItem: UIBarButtonItem {
         commonInit()
     }
     
-    public init(startingBadgeValue: String,
+    public init(startingBadgeValue: Int,
                 frame: CGRect,
                 title: String? = nil,
                 image: UIImage?,
@@ -151,7 +167,7 @@ public extension BadgedBarButtonItem {
 fileprivate extension BadgedBarButtonItem {
     
     func updateBadgeValue(animated: Bool) {
-        if (animated && (badgeLabel.text != badgeValue)) {
+        if (animated && (badgeLabel.text != badgeValueString)) {
             let animation: CABasicAnimation = CABasicAnimation()
             animation.keyPath = "transform.scale"
             animation.fromValue = 1.5
@@ -161,7 +177,7 @@ fileprivate extension BadgedBarButtonItem {
             badgeLabel.layer.add(animation, forKey: "bounceAnimation")
         }
         
-        badgeLabel.text = self.badgeValue;
+        badgeLabel.text = badgeValueString;
         
         let duration: Double = animated ? 0.2 : 0.0
         UIView.animate(withDuration: duration) {
@@ -179,26 +195,48 @@ fileprivate extension BadgedBarButtonItem {
         
         minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width
         
-        self.badgeLabel.frame = CGRect(
+        let nFrame = CGRect(
             x: badgeProperties.originalFrame.origin.x,
             y: badgeProperties.originalFrame.origin.y,
             width: minWidth + horizontalPadding,
             height: minHeight + horizontalPadding
         )
+        
+        UIView.animate(withDuration: 0.2) {
+            self.badgeLabel.frame = nFrame
+        }
+        
         self.badgeLabel.layer.cornerRadius = (minHeight + horizontalPadding) / 2
     }
     
     func removeBadge() {
-        UIView.animate(withDuration: 0.2,
-                       animations: {
-                        self.badgeLabel.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-        }, completion: { finished in
-            self.badgeLabel.removeFromSuperview()
-        })
+        let duration = shouldAnimateBadge ? 0.08 : 0.0
+        
+        let currentTransform = badgeLabel.layer.transform
+        let tf = CATransform3DMakeScale(0.001, 0.001, 1.0)
+        badgeLabel.layer.transform = tf
+        let scaleAnimation = CABasicAnimation()
+        scaleAnimation.fromValue = currentTransform
+        scaleAnimation.duration = duration
+        scaleAnimation.isRemovedOnCompletion = true
+        badgeLabel.layer.add(scaleAnimation, forKey: "transform")
+        
+        badgeLabel.layer.opacity = 0.0
+        let opacityAnimation = CABasicAnimation()
+        opacityAnimation.fromValue = 1.0
+        opacityAnimation.duration = duration
+        opacityAnimation.isRemovedOnCompletion = true
+        opacityAnimation.delegate = self
+        badgeLabel.layer.add(opacityAnimation, forKey: "opacity")
     }
     
     func createBadgeLabel() -> UILabel {
-        let frame = CGRect(x: badgeProperties.originalFrame.origin.x, y: badgeProperties.originalFrame.origin.y, width: 15, height: 15)
+        let frame = CGRect(
+            x: badgeProperties.originalFrame.origin.x,
+            y: badgeProperties.originalFrame.origin.y,
+            width: badgeProperties.originalFrame.width,
+            height: badgeProperties.originalFrame.height
+        )
         let label = UILabel(frame: frame)
         label.textColor = badgeProperties.textColor
         label.font = badgeProperties.font
@@ -213,7 +251,7 @@ fileprivate extension BadgedBarButtonItem {
     func badgeExpectedSize() -> CGSize {
         let frameLabel: UILabel = self.duplicateLabel(badgeLabel)
         frameLabel.sizeToFit()
-        let expectedLabelSize: CGSize = frameLabel.frame.size;
+        let expectedLabelSize: CGSize = frameLabel.frame.size
         
         return expectedLabelSize
     }
@@ -226,14 +264,8 @@ fileprivate extension BadgedBarButtonItem {
         return dupLabel
     }
     
-    func shouldBadgeHide(_ value: NSString) -> Bool {
-        let b2: Bool = value.isEqual(to: "")
-        let b3: Bool = value.isEqual(to: "0")
-        let b4: Bool = shouldHideBadgeAtZero
-        if ((b2 || b3) && b4) {
-            return true
-        }
-        return false
+    func shouldBadgeHide(_ value: Int) -> Bool {
+        return (value == 0) && shouldHideBadgeAtZero
     }
     
     func updateBadgeProperties() {
@@ -248,5 +280,13 @@ fileprivate extension BadgedBarButtonItem {
         }
     
         UIApplication.shared.sendAction(action, to: target, from: self, for: nil)
+    }
+}
+
+extension BadgedBarButtonItem: CAAnimationDelegate {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+        if flag {
+            self.badgeLabel.removeFromSuperview()
+        }
     }
 }

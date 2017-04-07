@@ -9,4 +9,4 @@ A UIBarButtonItem that can be badged!
 ---
 
 ### Compatibility:
-* ENMBadgedBarButtonItem is built for Xcode 8 and Swift 3
+* `BadgedBarButtonItem` is built for Xcode 8.3 and Swift 3.1

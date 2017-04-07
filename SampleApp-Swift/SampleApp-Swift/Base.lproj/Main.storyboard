@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -67,7 +66,9 @@
                         <rightBarButtonItems>
                             <barButtonItem title="Test" id="vJV-4I-YpG" customClass="BadgedBarButtonItem" customModule="BadgedBarButtonItem">
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="badgeValue" value="0"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="badgeValue">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="rightBarButtonTapped:" destination="pGg-6v-bdr" id="O4R-M9-bZO"/>
