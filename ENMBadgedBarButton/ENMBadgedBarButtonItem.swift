@@ -1,24 +1,20 @@
 //
 //  ENMBadgedBarButtonItem.swift
-//  TestBadge-Swift
+//  ENMBadgedBarButton
 //
 //  Created by Eric Miller on 6/2/14.
-//  Copyright (c) 2014 Xero. All rights reserved.
+//  Copyright (c) 2014 Tiny Zepplin. All rights reserved.
 //
 
 import UIKit
 import Foundation
 import QuartzCore
 
-let kENMDefaultPadding: CGFloat = 3.0
-let kENMDefaultMinSize: CGFloat = 8.0
-let kENMDefaultOriginX: CGFloat = 0.0
-let kENMDefaultOriginY: CGFloat = 0.0
-
-public class ENMBadgedBarButtonItem: UIBarButtonItem {
+public typealias ENMBadgedBarButtonItem = BadgedBarButtonItem
+public class BadgedBarButtonItem: UIBarButtonItem {
     
     var badgeLabel: UILabel = UILabel()
-    public var badgeValue: String {
+    @IBInspectable public var badgeValue: String  = "0" {
         didSet {
             guard !shouldBadgeHide(badgeValue as NSString) else {
                 if (badgeLabel.superview != nil) {
@@ -28,7 +24,7 @@ public class ENMBadgedBarButtonItem: UIBarButtonItem {
             }
             
             if (badgeLabel.superview != nil) {
-                updateBadgeValueAnimated(true)
+                updateBadgeValue(animated: shouldAnimateBadge)
             } else {
                 badgeLabel = self.createBadgeLabel()
                 updateBadgeProperties()
@@ -42,64 +38,120 @@ public class ENMBadgedBarButtonItem: UIBarButtonItem {
             }
         }
     }
-    var badgeBackgroundColor: UIColor = UIColor.green {
-        didSet {
-            refreshBadgeLabelProperties()
-        }
-    }
-    var badgeTextColor: UIColor = UIColor.black {
-        didSet {
-            refreshBadgeLabelProperties()
-        }
-    }
-    var badgeFont: UIFont = UIFont.systemFont(ofSize: 12.0){
-        didSet {
-            refreshBadgeLabelProperties()
-        }
-    }
-    var badgePadding: CGFloat {
-        get {
-            return kENMDefaultPadding
-        }
-    }
-    var badgeMinSize: CGFloat {
-        get {
-            return kENMDefaultMinSize
-        }
-    }
-    var badgeOriginX: CGFloat = kENMDefaultOriginX
-    var badgeOriginY: CGFloat {
-        get {
-            return kENMDefaultOriginY
-        }
-    }
-    var shouldHideBadgeAtZero: Bool = true
-    var shouldAnimateBadge: Bool = true
     
-    public init(customView: UIView, value: String) {
-        badgeValue = value
-        badgeOriginX = customView.frame.size.width - badgeLabel.frame.size.width / 2
+    /**
+     When the badgeValue is set to `0`, this flag will be checked to determine if the 
+     badge should be hidden.  Defaults to true.
+    */
+    public var shouldHideBadgeAtZero: Bool = true
+    
+    /**
+     Flag indicating if the `badgeValue` should be animated when the value is changed.
+     Defaults to true.
+    */
+    public var shouldAnimateBadge: Bool = true
+    
+    /**
+     A collection of properties that define the layout and behavior of the badge.
+     Accessable after initialization if run-time updates are required.
+    */
+    public var badgeProperties: BadgeProperties
+    
+    public init(customView: UIView, value: String, badgeProperties: BadgeProperties = BadgeProperties.default) {
+        self.badgeProperties = badgeProperties
         super.init()
+        
+        badgeValue = value
         self.customView = customView
+        
+        commonInit()
     }
     
-    public required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented.  This UIBarButtonItem requires a custom view in order to use.  Please use the designated initializer -init(customView:value:)")
+    public init(startingBadgeValue: String,
+                frame: CGRect,
+                title: String? = nil,
+                image: UIImage?,
+                badgeProperties: BadgeProperties = BadgeProperties.default) {
+        
+        self.badgeProperties = badgeProperties
+        super.init()
+        
+        self.badgeValue = startingBadgeValue
+        performStoryboardInitalizationSetup(with: frame, title: title, image: image)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        self.badgeProperties = BadgeProperties.default
+        super.init(coder: aDecoder)
+        
+        var buttonFrame: CGRect = CGRect.zero
+        if let image = self.image {
+            buttonFrame = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
+        } else if let title = self.title {
+            let lbl = UILabel()
+            lbl.text = title
+            let textSize = lbl.sizeThatFits(CGSize(width: 100.0, height: 100.0))
+            buttonFrame = CGRect(x: 0.0, y: 0.0, width: textSize.width + 2.0, height: textSize.height)
+        }
+        
+        
+        performStoryboardInitalizationSetup(with: buttonFrame, title: self.title, image: self.image)
+        commonInit()
+    }
+    
+    private func performStoryboardInitalizationSetup(with frame: CGRect, title: String? = nil, image: UIImage?) {
+        let btn = createInternalButton(frame: frame, title: title, image: image)
+        self.customView = btn
+        btn.addTarget(self, action: #selector(internalButtonTapped(_:)), for: .touchUpInside)
+    }
+    
+    private func commonInit() {
+        badgeLabel.font = badgeProperties.font
+        badgeLabel.textColor = badgeProperties.textColor
+        badgeLabel.backgroundColor = badgeProperties.backgroundColor
+    }
+    
+    /**
+     Creates the internal UIButton to be used as the custom view of the UIBarButtonItem.
+     
+     - Note: Subclassable for further customization.
+     
+     - Parameter frame: The frame of the final BadgedBarButtonItem
+     - Parameter title: The title of the BadgedBarButtonItem. Optional. Defaults to nil.
+     - Parameter image: The image of the BadgedBarButtonItem. Optional.
+    */
+    open func createInternalButton(frame: CGRect,
+                                   title: String? = nil,
+                                   image: UIImage?) -> UIButton {
+        
+        let btn = UIButton(type: .custom)
+        btn.setImage(image, for: UIControlState())
+        btn.setTitle(title, for: UIControlState())
+        btn.setTitleColor(UIColor.black, for: UIControlState())
+        btn.frame = frame
+        
+        return btn
     }
 }
 
-// MARK: - Utilities
-extension ENMBadgedBarButtonItem {
+// MARK: - Public Functions
+public extension BadgedBarButtonItem {
     
-    func refreshBadgeLabelProperties() {
-        badgeLabel.textColor = badgeTextColor;
-        badgeLabel.backgroundColor = badgeBackgroundColor;
-        badgeLabel.font = badgeFont;
+    /**
+     Programmatically adds a target-action pair to the BadgedBarButtonItem
+    */
+    public func addTarget(_ target: AnyObject, action: Selector) {
+        self.target = target
+        self.action = action
     }
+}
+
+
+// MARK: - Private Functions
+fileprivate extension BadgedBarButtonItem {
     
-    func updateBadgeValueAnimated(_ animated: Bool) {
-        
-        if (animated && shouldAnimateBadge && (badgeLabel.text != badgeValue)) {
+    func updateBadgeValue(animated: Bool) {
+        if (animated && (badgeLabel.text != badgeValue)) {
             let animation: CABasicAnimation = CABasicAnimation()
             animation.keyPath = "transform.scale"
             animation.fromValue = 1.5
@@ -121,40 +173,36 @@ extension ENMBadgedBarButtonItem {
         let expectedLabelSize: CGSize = badgeExpectedSize()
         var minHeight = expectedLabelSize.height
         
-        minHeight = (minHeight < badgeMinSize) ? badgeMinSize : expectedLabelSize.height
+        minHeight = (minHeight < badgeProperties.minimumWidth) ? badgeProperties.minimumWidth : expectedLabelSize.height
         var minWidth = expectedLabelSize.width
-        let padding = badgePadding
+        let horizontalPadding = badgeProperties.horizontalPadding
         
         minWidth = (minWidth < minHeight) ? minHeight : expectedLabelSize.width
         
         self.badgeLabel.frame = CGRect(
-            x: self.badgeOriginX,
-            y: self.badgeOriginY,
-            width: minWidth + padding,
-            height: minHeight + padding
+            x: badgeProperties.originalFrame.origin.x,
+            y: badgeProperties.originalFrame.origin.y,
+            width: minWidth + horizontalPadding,
+            height: minHeight + horizontalPadding
         )
-        self.badgeLabel.layer.cornerRadius = (minHeight + padding) / 2
+        self.badgeLabel.layer.cornerRadius = (minHeight + horizontalPadding) / 2
     }
     
     func removeBadge() {
         UIView.animate(withDuration: 0.2,
-            animations: {
-                self.badgeLabel.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
-            }, completion: { finished in
-                self.badgeLabel.removeFromSuperview()
+                       animations: {
+                        self.badgeLabel.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        }, completion: { finished in
+            self.badgeLabel.removeFromSuperview()
         })
     }
-}
-
-// MARK: - Internal Helpers
-extension ENMBadgedBarButtonItem {
     
     func createBadgeLabel() -> UILabel {
-        let frame = CGRect(x: badgeOriginX, y: badgeOriginY, width: 15, height: 15)
+        let frame = CGRect(x: badgeProperties.originalFrame.origin.x, y: badgeProperties.originalFrame.origin.y, width: 15, height: 15)
         let label = UILabel(frame: frame)
-        label.textColor = badgeTextColor
-        label.font = badgeFont
-        label.backgroundColor = badgeBackgroundColor
+        label.textColor = badgeProperties.textColor
+        label.font = badgeProperties.font
+        label.backgroundColor = badgeProperties.backgroundColor
         label.textAlignment = NSTextAlignment.center
         label.layer.cornerRadius = frame.size.width / 2
         label.clipsToBounds = true
@@ -190,7 +238,15 @@ extension ENMBadgedBarButtonItem {
     
     func updateBadgeProperties() {
         if let customView = self.customView {
-            badgeOriginX = customView.frame.size.width - badgeLabel.frame.size.width/2
+            badgeProperties.originalFrame.origin.x = customView.frame.size.width - badgeLabel.frame.size.width/2
         }
+    }
+    
+    @objc func internalButtonTapped(_ sender: UIButton) {
+        guard let action = self.action, let target = self.target else {
+            preconditionFailure("Developer Error: The BadgedBarButtonItem requires a target-action pair")
+        }
+    
+        UIApplication.shared.sendAction(action, to: target, from: self, for: nil)
     }
 }

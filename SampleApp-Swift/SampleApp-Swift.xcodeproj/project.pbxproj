@@ -14,6 +14,7 @@
 		7B8B2AC0193E252B00A5ABD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B2ABE193E252B00A5ABD3 /* Main.storyboard */; };
 		7B8B2AC2193E252B00A5ABD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B2AC1193E252B00A5ABD3 /* Images.xcassets */; };
 		7B8B2ACE193E252B00A5ABD3 /* SampleApp_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2ACD193E252B00A5ABD3 /* SampleApp_SwiftTests.swift */; };
+		D4A69A721E8EF4C3005A7110 /* BadgedBarItemProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A69A711E8EF4C3005A7110 /* BadgedBarItemProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		7B8B2AC7193E252B00A5ABD3 /* SampleApp-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SampleApp-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8B2ACC193E252B00A5ABD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8B2ACD193E252B00A5ABD3 /* SampleApp_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SampleApp_SwiftTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D4A69A711E8EF4C3005A7110 /* BadgedBarItemProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgedBarItemProperties.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				7B75502E1E1C47020093719A /* ENMBadgedBarButton.h */,
 				7B75502F1E1C47020093719A /* ENMBadgedBarButtonItem.swift */,
+				D4A69A711E8EF4C3005A7110 /* BadgedBarItemProperties.swift */,
 			);
 			name = ENMBadgedBarButton;
 			path = ../ENMBadgedBarButton;
@@ -249,6 +252,7 @@
 				7B8B2ABB193E252B00A5ABD3 /* MasterViewController.swift in Sources */,
 				7B7550641E1C4B730093719A /* ENMBadgedBarButtonItem.swift in Sources */,
 				7B8B2AB9193E252B00A5ABD3 /* AppDelegate.swift in Sources */,
+				D4A69A721E8EF4C3005A7110 /* BadgedBarItemProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

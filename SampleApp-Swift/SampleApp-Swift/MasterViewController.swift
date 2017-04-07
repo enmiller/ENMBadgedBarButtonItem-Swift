@@ -1,9 +1,9 @@
 //
 //  MasterViewController.swift
-//  TestBadge-Swift
+//  ENMBadgedBarButton
 //
 //  Created by Eric Miller on 6/2/14.
-//  Copyright (c) 2014 Xero. All rights reserved.
+//  Copyright (c) 2014 Tiny Zepplin. All rights reserved.
 //
 
 import UIKit
@@ -11,8 +11,12 @@ import UIKit
 class MasterViewController: UITableViewController {
     
     var objects = NSMutableArray()
-    var leftBarButton: ENMBadgedBarButtonItem?
-    var count = 0
+    
+    @IBOutlet fileprivate var rightBarButton: BadgedBarButtonItem!
+    
+    fileprivate(set) var leftBarButton: BadgedBarButtonItem?
+    fileprivate var leftCount = 0
+    fileprivate var rightCount = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,39 +26,37 @@ class MasterViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpLeftBarButton()
-        
-        let addButton = UIBarButtonItem(barButtonSystemItem: .rewind,
-                                        target: self,
-                                        action: #selector(MasterViewController.rightButtonPressed(_:)))
-        navigationItem.rightBarButtonItem = addButton
     }
     
     func setUpLeftBarButton() {
-        let image = UIImage(named: "barbuttonimage")
-        let button = UIButton(type: .custom)
-        if let knownImage = image {
-            button.frame = CGRect(x: 0.0, y: 0.0, width: knownImage.size.width, height: knownImage.size.height)
-        } else {
-            button.frame = CGRect.zero;
-        }
+        let image = UIImage(imageLiteralResourceName: "barbuttonimage")
+        let buttonFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
         
-        button.setBackgroundImage(image, for: UIControlState())
-        button.addTarget(self,
-                         action: #selector(MasterViewController.leftButtonPressed(_:)),
-                         for: UIControlEvents.touchUpInside)
+        let barButton = BadgedBarButtonItem(
+            startingBadgeValue: "\(leftCount)",
+            frame: buttonFrame,
+            image: image
+        )
         
-        let newBarButton = ENMBadgedBarButtonItem(customView: button, value: "\(count)")
-        leftBarButton = newBarButton
+        leftBarButton = barButton
+        leftBarButton?.addTarget(self, action: #selector(leftBarButtonTapped(_:)))
         navigationItem.leftBarButtonItem = leftBarButton
     }
     
-    func leftButtonPressed(_ sender: UIButton) {
-        count = count + 1
-        leftBarButton?.badgeValue = "\(count)"
+    @IBAction func leftBarButtonTapped(_ sender: BadgedBarButtonItem) {
+        leftCount = leftCount + 1
+        sender.badgeValue = "\(leftCount)"
     }
     
-    func rightButtonPressed(_ sender: UIButton) {
-        count = 0
-        leftBarButton?.badgeValue = "0"
+    @IBAction func rightBarButtonTapped(_ sender: BadgedBarButtonItem) {
+        rightCount = rightCount + 1
+        sender.badgeValue = "\(rightCount)"
+    }
+    
+    @IBAction func reset(_ sender: UIBarButtonItem) {
+        rightCount = 0
+        leftCount = 0
+        leftBarButton?.badgeValue = "\(leftCount)"
+        rightBarButton.badgeValue = "\(rightCount)"
     }
 }
