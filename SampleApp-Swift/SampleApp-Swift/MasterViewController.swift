@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import class BadgedBarButtonItem.BadgedBarButtonItem
 
 class MasterViewController: UITableViewController {
     
@@ -31,7 +32,6 @@ class MasterViewController: UITableViewController {
     func setUpLeftBarButton() {
         let image = UIImage(imageLiteralResourceName: "barbuttonimage")
         let buttonFrame: CGRect = CGRect(x: 0.0, y: 0.0, width: image.size.width, height: image.size.height)
-        
         let barButton = BadgedBarButtonItem(
             startingBadgeValue: "\(leftCount)",
             frame: buttonFrame,

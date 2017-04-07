@@ -1,6 +1,6 @@
 //
 //  BadgeProperties.swift
-//  ENMBadgedBarButton
+//  BadgedBarButtonItem
 //
 //  Created by Eric Miller on 3/31/17.
 //  Copyright © 2017 Tiny Zepplin. All rights reserved.

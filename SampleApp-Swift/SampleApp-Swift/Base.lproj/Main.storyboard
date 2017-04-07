@@ -65,7 +65,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Master" id="tQt-TN-PWz">
                         <rightBarButtonItems>
-                            <barButtonItem title="Test" id="vJV-4I-YpG" customClass="BadgedBarButtonItem" customModule="SampleApp_Swift" customModuleProvider="target">
+                            <barButtonItem title="Test" id="vJV-4I-YpG" customClass="BadgedBarButtonItem" customModule="BadgedBarButtonItem">
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="badgeValue" value="0"/>
                                 </userDefinedRuntimeAttributes>
