@@ -1,12 +1,12 @@
-#ENMBadgedBarButtonItem - Swift
+# ENMBadgedBarButtonItem - Swift
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CocoaPods](https://img.shields.io/cocoapods/v/ENMBadgedBarButtonItem.svg?style=flat-square)]()
 
-A navigation bar button item that can be badged 
+A UIBarButtonItem that can be badged!
 
 ![Screenshot](screenshot.png)
 
 ---
 
-###Compatibility:
+### Compatibility:
 * ENMBadgedBarButtonItem is built for Xcode 8 and Swift 3
