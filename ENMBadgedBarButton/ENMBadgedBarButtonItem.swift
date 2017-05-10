@@ -42,39 +42,39 @@ public class ENMBadgedBarButtonItem: UIBarButtonItem {
             }
         }
     }
-    var badgeBackgroundColor: UIColor = UIColor.green {
+    public var badgeBackgroundColor: UIColor = UIColor.green {
         didSet {
             refreshBadgeLabelProperties()
         }
     }
-    var badgeTextColor: UIColor = UIColor.black {
+    public var badgeTextColor: UIColor = UIColor.black {
         didSet {
             refreshBadgeLabelProperties()
         }
     }
-    var badgeFont: UIFont = UIFont.systemFont(ofSize: 12.0){
+    public var badgeFont: UIFont = UIFont.systemFont(ofSize: 12.0){
         didSet {
             refreshBadgeLabelProperties()
         }
     }
-    var badgePadding: CGFloat {
+    public var badgePadding: CGFloat {
         get {
             return kENMDefaultPadding
         }
     }
-    var badgeMinSize: CGFloat {
+    public var badgeMinSize: CGFloat {
         get {
             return kENMDefaultMinSize
         }
     }
-    var badgeOriginX: CGFloat = kENMDefaultOriginX
-    var badgeOriginY: CGFloat {
+    public var badgeOriginX: CGFloat = kENMDefaultOriginX
+    public var badgeOriginY: CGFloat {
         get {
             return kENMDefaultOriginY
         }
     }
-    var shouldHideBadgeAtZero: Bool = true
-    var shouldAnimateBadge: Bool = true
+    public var shouldHideBadgeAtZero: Bool = true
+    public var shouldAnimateBadge: Bool = true
     
     public init(customView: UIView, value: String) {
         badgeValue = value
