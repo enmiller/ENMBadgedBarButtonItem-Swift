@@ -24,7 +24,7 @@ public class BadgeProperties {
     
     /**
      The additional horizontal padding of the badge
-     Defaults to 3.0
+     Defaults to 4.0
     */
     public var horizontalPadding: CGFloat
     
