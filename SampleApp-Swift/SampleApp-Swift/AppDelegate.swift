@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  TestBadge-Swift
+//  ENMBadgedBarButton
 //
 //  Created by Eric Miller on 6/2/14.
-//  Copyright (c) 2014 Xero. All rights reserved.
+//  Copyright (c) 2014 Tiny Zepplin. All rights reserved.
 //
 
 import UIKit
