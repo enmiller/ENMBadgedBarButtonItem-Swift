@@ -13,7 +13,7 @@ import QuartzCore
 @available(*, deprecated: 3.1, message: "ENMBadgedBarButtonItem will soon become unavailable. Please use the updated BadgedBarButtonItem class name")
 public typealias ENMBadgedBarButtonItem = BadgedBarButtonItem
 
-public class BadgedBarButtonItem: UIBarButtonItem {
+open class BadgedBarButtonItem: UIBarButtonItem {
     
     var badgeLabel: UILabel = UILabel()
     @IBInspectable public var badgeValue: Int  = 0 {
@@ -126,28 +126,6 @@ public class BadgedBarButtonItem: UIBarButtonItem {
         badgeLabel.textColor = badgeProperties.textColor
         badgeLabel.backgroundColor = badgeProperties.backgroundColor
     }
-    
-    /**
-     Creates the internal UIButton to be used as the custom view of the UIBarButtonItem.
-     
-     - Note: Subclassable for further customization.
-     
-     - Parameter frame: The frame of the final BadgedBarButtonItem
-     - Parameter title: The title of the BadgedBarButtonItem. Optional. Defaults to nil.
-     - Parameter image: The image of the BadgedBarButtonItem. Optional.
-    */
-    open func createInternalButton(frame: CGRect,
-                                   title: String? = nil,
-                                   image: UIImage?) -> UIButton {
-        
-        let btn = UIButton(type: .custom)
-        btn.setImage(image, for: UIControlState())
-        btn.setTitle(title, for: UIControlState())
-        btn.setTitleColor(UIColor.black, for: UIControlState())
-        btn.frame = frame
-        
-        return btn
-    }
 }
 
 // MARK: - Public Functions
@@ -159,6 +137,37 @@ public extension BadgedBarButtonItem {
     public func addTarget(_ target: AnyObject, action: Selector) {
         self.target = target
         self.action = action
+    }
+    
+    /**
+     Creates the internal UIButton to be used as the custom view of the UIBarButtonItem.
+     
+     - Note: Subclassable for further customization.
+     
+     - Parameter frame: The frame of the final BadgedBarButtonItem
+     - Parameter title: The title of the BadgedBarButtonItem. Optional. Defaults to nil.
+     - Parameter image: The image of the BadgedBarButtonItem. Optional.
+     */
+    public func createInternalButton(frame: CGRect,
+                                   title: String? = nil,
+                                   image: UIImage?) -> UIButton {
+        
+        let btn = UIButton(type: .custom)
+        btn.setImage(image, for: UIControlState())
+        btn.setTitle(title, for: UIControlState())
+        btn.setTitleColor(UIColor.black, for: UIControlState())
+        btn.frame = frame
+        
+        return btn
+    }
+    
+    /**
+     Calculates the update position of the badge using the button's frame.
+     
+     Can be subclassed for further customization.
+     */
+    public func calculateUpdatedBadgeFrame(usingFrame frame: CGRect) {
+        badgeProperties.originalFrame.origin.x = (frame.size.width - 1) - badgeLabel.frame.size.width/2
     }
 }
 
@@ -270,7 +279,7 @@ fileprivate extension BadgedBarButtonItem {
     
     func updateBadgeProperties() {
         if let customView = self.customView {
-            badgeProperties.originalFrame.origin.x = customView.frame.size.width - badgeLabel.frame.size.width/2
+            calculateUpdatedBadgeFrame(usingFrame: customView.frame)
         }
     }
     
