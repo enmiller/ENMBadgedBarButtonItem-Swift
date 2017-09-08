@@ -38,10 +38,6 @@ public class BadgeProperties {
     public var textColor: UIColor
     public var backgroundColor: UIColor
     
-    /**
-     A quick way to instantiate badge properties with their default values.
-    */
-    static let `default` = BadgeProperties()
     
     public init(
         originalFrame: CGRect = CGRect.zero,
