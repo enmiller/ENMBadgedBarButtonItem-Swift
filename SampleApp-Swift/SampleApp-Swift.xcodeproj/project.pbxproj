@@ -13,6 +13,7 @@
 		7B8B2AC0193E252B00A5ABD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B2ABE193E252B00A5ABD3 /* Main.storyboard */; };
 		7B8B2AC2193E252B00A5ABD3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B8B2AC1193E252B00A5ABD3 /* Images.xcassets */; };
 		7B8B2ACE193E252B00A5ABD3 /* SampleApp_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8B2ACD193E252B00A5ABD3 /* SampleApp_SwiftTests.swift */; };
+		D47AF3481F73D89F00E1E3AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47AF3471F73D89F00E1E3AA /* LaunchScreen.storyboard */; };
 		D4A69ABE1E97E882005A7110 /* BadgedBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A69ABC1E97E882005A7110 /* BadgedBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D4A69AC41E97E8B6005A7110 /* BadgedBarItemProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A69AC21E97E8B6005A7110 /* BadgedBarItemProperties.swift */; };
 		D4A69AC51E97E8B6005A7110 /* BadgedBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A69AC31E97E8B6005A7110 /* BadgedBarButtonItem.swift */; };
@@ -53,6 +54,7 @@
 		7B8B2AC7193E252B00A5ABD3 /* SampleApp-SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SampleApp-SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8B2ACC193E252B00A5ABD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B8B2ACD193E252B00A5ABD3 /* SampleApp_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SampleApp_SwiftTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		D47AF3471F73D89F00E1E3AA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4A69ABA1E97E881005A7110 /* BadgedBarButtonItem.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BadgedBarButtonItem.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4A69ABC1E97E882005A7110 /* BadgedBarButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgedBarButtonItem.h; sourceTree = "<group>"; };
 		D4A69ABD1E97E882005A7110 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			children = (
 				7B8B2AC1193E252B00A5ABD3 /* Images.xcassets */,
 				7B8B2AB7193E252B00A5ABD3 /* Info.plist */,
+				D47AF3471F73D89F00E1E3AA /* LaunchScreen.storyboard */,
 			);
 			name = "Supporting Files";
 			path = "SampleApp-Swift";
@@ -277,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D47AF3481F73D89F00E1E3AA /* LaunchScreen.storyboard in Resources */,
 				7B8B2AC0193E252B00A5ABD3 /* Main.storyboard in Resources */,
 				7B8B2AC2193E252B00A5ABD3 /* Images.xcassets in Resources */,
 			);
@@ -450,7 +454,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SampleApp-Swift/Info.plist";
@@ -468,7 +471,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "SampleApp-Swift/Info.plist";
