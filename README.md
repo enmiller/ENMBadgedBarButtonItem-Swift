@@ -1,5 +1,6 @@
 # ENMBadgedBarButtonItem - Swift
 
+[![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg?style=flat-square)]()
 [![CocoaPods](https://img.shields.io/cocoapods/v/ENMBadgedBarButtonItem.svg?style=flat-square)]()
 
 A UIBarButtonItem that can be badged!
@@ -32,6 +33,3 @@ From a storyboard, instantiation is as easy as creating an `IBOutlet` and connec
 ```
 
 Use the `BadgeProperties` class to customize the badge bar item's appearance and position.
-
-### Compatibility:
-* `BadgedBarButtonItem` is built for Xcode 8.3 and Swift 3.1
