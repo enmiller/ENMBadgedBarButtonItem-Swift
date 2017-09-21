@@ -73,7 +73,7 @@ open class BadgedBarButtonItem: UIBarButtonItem {
     */
     public var badgeProperties: BadgeProperties
     
-    public init(customView: UIView, value: Int, badgeProperties: BadgeProperties = BadgeProperties.default) {
+    public init(customView: UIView, value: Int, badgeProperties: BadgeProperties = BadgeProperties()) {
         self.badgeProperties = badgeProperties
         super.init()
         
@@ -87,7 +87,7 @@ open class BadgedBarButtonItem: UIBarButtonItem {
                 frame: CGRect,
                 title: String? = nil,
                 image: UIImage?,
-                badgeProperties: BadgeProperties = BadgeProperties.default) {
+                badgeProperties: BadgeProperties = BadgeProperties()) {
         
         self.badgeProperties = badgeProperties
         super.init()
@@ -97,7 +97,7 @@ open class BadgedBarButtonItem: UIBarButtonItem {
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        self.badgeProperties = BadgeProperties.default
+        self.badgeProperties = BadgeProperties()
         super.init(coder: aDecoder)
         
         var buttonFrame: CGRect = CGRect.zero
