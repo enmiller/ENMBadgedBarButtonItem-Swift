@@ -225,6 +225,11 @@ fileprivate extension BadgedBarButtonItem {
     func removeBadge() {
         let duration = shouldAnimateBadge ? 0.08 : 0.0
         
+        CATransaction.begin()
+        CATransaction.setCompletionBlock({
+            self.badgeLabel.removeFromSuperview()
+        })
+
         let currentTransform = badgeLabel.layer.transform
         let tf = CATransform3DMakeScale(0.001, 0.001, 1.0)
         badgeLabel.layer.transform = tf
