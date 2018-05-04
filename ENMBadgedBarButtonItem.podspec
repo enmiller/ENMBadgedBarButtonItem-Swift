@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "ENMBadgedBarButtonItem"
-  s.version = "4.0.1"
+  s.version = "4.0.3"
   s.summary = "A UIBarButtonItem that can be badged!"
   s.license = { :type => "MIT", :file => "LICENSE" }
   s.author = { "Eric Miller" => "eric@ericnmiller.com" }
