@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7B150A1C1D93854700C5E6FE"
-               BuildableName = "ENMBadgedBarButton.framework"
-               BlueprintName = "ENMBadgedBarButton"
+               BlueprintIdentifier = "D4A69AB91E97E881005A7110"
+               BuildableName = "BadgedBarButtonItem.framework"
+               BlueprintName = "BadgedBarButtonItem"
                ReferencedContainer = "container:SampleApp-Swift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7B150A1C1D93854700C5E6FE"
-            BuildableName = "ENMBadgedBarButton.framework"
-            BlueprintName = "ENMBadgedBarButton"
+            BlueprintIdentifier = "D4A69AB91E97E881005A7110"
+            BuildableName = "BadgedBarButtonItem.framework"
+            BlueprintName = "BadgedBarButtonItem"
             ReferencedContainer = "container:SampleApp-Swift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7B150A1C1D93854700C5E6FE"
-            BuildableName = "ENMBadgedBarButton.framework"
-            BlueprintName = "ENMBadgedBarButton"
+            BlueprintIdentifier = "D4A69AB91E97E881005A7110"
+            BuildableName = "BadgedBarButtonItem.framework"
+            BlueprintName = "BadgedBarButtonItem"
             ReferencedContainer = "container:SampleApp-Swift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

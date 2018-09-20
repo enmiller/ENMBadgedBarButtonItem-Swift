@@ -42,7 +42,7 @@ public class BadgeProperties {
     public init(
         originalFrame: CGRect = CGRect.zero,
         minimumWidth: CGFloat = 8.0,
-        horizontalPadding: CGFloat = 4.0,
+        horizontalPadding: CGFloat = 8.0,
         verticalPadding: CGFloat = 0.0,
         font: UIFont = UIFont.systemFont(ofSize: 12.0),
         textColor: UIColor = UIColor.black,
