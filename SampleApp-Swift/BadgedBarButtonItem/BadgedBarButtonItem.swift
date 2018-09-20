@@ -153,9 +153,9 @@ public extension BadgedBarButtonItem {
                                    image: UIImage?) -> UIButton {
         
         let btn = UIButton(type: .custom)
-        btn.setImage(image, for: UIControlState())
-        btn.setTitle(title, for: UIControlState())
-        btn.setTitleColor(UIColor.black, for: UIControlState())
+        btn.setImage(image, for: .normal)
+        btn.setTitle(title, for: .normal)
+        btn.setTitleColor(UIColor.black, for: .normal)
         btn.frame = frame
         
         return btn
