@@ -115,7 +115,7 @@ public extension BadgedBarButtonItem {
     /**
      Programmatically adds a target-action pair to the BadgedBarButtonItem
     */
-    public func addTarget(_ target: AnyObject, action: Selector) {
+    func addTarget(_ target: AnyObject, action: Selector) {
         self.target = target
         self.action = action
     }
@@ -129,7 +129,7 @@ public extension BadgedBarButtonItem {
      - Parameter title: The title of the BadgedBarButtonItem. Optional. Defaults to nil.
      - Parameter image: The image of the BadgedBarButtonItem. Optional.
      */
-    public func createInternalButton(frame: CGRect,
+    func createInternalButton(frame: CGRect,
                                    title: String? = nil,
                                    image: UIImage?) -> UIButton {
         
@@ -147,7 +147,7 @@ public extension BadgedBarButtonItem {
      
      Can be subclassed for further customization.
      */
-    public func calculateUpdatedBadgeFrame(usingFrame frame: CGRect) {
+    func calculateUpdatedBadgeFrame(usingFrame frame: CGRect) {
         let offset = CGFloat(4.0)
         badgeProperties.originalFrame.origin.x = (frame.size.width - offset) - badgeLabel.frame.size.width/2
     }
